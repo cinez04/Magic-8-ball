@@ -1,5 +1,5 @@
 // The public URL for your deployed Magic 8-Ball API endpoint
-const API_URL = 'https://magic-8-ball-1abf.onrender.com/ask_8_ball';
+const API_URL = 'https://magic-8-ball-1abf.onrender.com';
 
 /**
  * Handles the user interaction, makes the API call, and updates the UI.
