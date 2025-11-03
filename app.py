@@ -30,7 +30,7 @@ def get_magic_answer():
     return "Error!"
 
 # This is the API endpoint your frontend will call
-@app.route('/ask_8_ball', methods=['POST'])
+@app.route('/', methods=['POST'])
 def ask_8_ball():
     # We could access the question here if we needed it:
     # data = request.get_json()
