@@ -44,7 +44,3 @@ def ask_8_ball():
         'question_received': 'OK',
         'magic_answer': answer
     })
-
-@app.route('/')
-def home():
-    return "Magic 8-Ball API is running! Use the /ask_8_ball endpoint to get an answer."
