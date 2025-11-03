@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Magic 8-Ball</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ask the Magic 8-Ball!</h1>
+        
+        <div class="eight-ball-container">
+            <div id="eight-ball" class="eight-ball">
+                <span id="answer-text">Ask me anything...</span>
+            </div>
+        </div>
+
+        <input type="text" id="question-input" placeholder="Enter your question here..." required>
+        <button id="shake-button" onclick="askEightBall()">Shake the Ball</button>
+        
+        <p class="error-message" id="error-display"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
