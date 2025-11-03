@@ -1,4 +1,9 @@
-// Function that runs when the "Shake the Ball" button is clicked
+// The public URL for your deployed Magic 8-Ball API endpoint
+const API_URL = 'https://magic-8-ball-1abf.onrender.com/ask_8_ball';
+
+/**
+ * Handles the user interaction, makes the API call, and updates the UI.
+ */
 async function askEightBall() {
     // 1. Get DOM elements
     const questionInput = document.getElementById('question-input');
@@ -6,25 +11,21 @@ async function askEightBall() {
     const errorDisplay = document.getElementById('error-display');
     const shakeButton = document.getElementById('shake-button');
     
-    // Clear previous error message
+    // Clear previous error message and validate input
     errorDisplay.textContent = '';
-    
-    // Check if the user entered a question
-    if (questionInput.value.trim() === "") {
+    const userQuestion = questionInput.value.trim();
+
+    if (!userQuestion) {
         answerDisplay.textContent = "Please ask a question!";
         return;
     }
 
-    // 2. Prepare the UI for interaction
-    const userQuestion = questionInput.value;
+    // 2. Prepare UI
     answerDisplay.textContent = "Shaking...";
-    shakeButton.disabled = true; // Disable button during API call
-
-    // 3. Define the URL of your Flask endpoint
-    // IMPORTANT: Ensure your Flask server is running at this address!
-    const API_URL = 'http://127.0.0.1:5000/ask_8_ball';
+    shakeButton.disabled = true;
 
     try {
+        // 3. Fetch data from the live API
         const response = await fetch(API_URL, {
             method: 'POST', 
             headers: {
@@ -36,23 +37,22 @@ async function askEightBall() {
         });
 
         if (!response.ok) {
-            // Handle HTTP errors (e.g., 404, 500)
-            throw new Error(`Server responded with status: ${response.status}. Is your Flask server running?`);
+            // Throw a concise error if the HTTP status is not 200 (OK)
+            throw new Error(`Server responded with HTTP status ${response.status}.`);
         }
 
         const data = await response.json(); 
         
-        // 4. Get the answer from the JSON response and update the display
-        const answer = data.magic_answer;
-        answerDisplay.textContent = answer;
+        // 4. Display the answer
+        answerDisplay.textContent = data.magic_answer;
 
     } catch (error) {
-        // Handle network errors (e.g., Flask server is down)
-        console.error('API Call Error:', error);
+        // 5. Handle and display errors
+        console.error('API Call Failed:', error);
         errorDisplay.textContent = `Error: Could not connect to the API. ${error.message}`;
         answerDisplay.textContent = "Error!";
     } finally {
-        // Re-enable the button after the call is complete
+        // 6. Final UI state reset
         shakeButton.disabled = false;
     }
 }

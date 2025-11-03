@@ -5,22 +5,28 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #333; /* Dark background */
-    color: #fff;
+    /* Changed from dark gray to a soft pink background */
+    background-color: #f7d2e6;
+    /* Changed text color to a dark gray for readability */
+    color: #333;
     text-align: center;
 }
 
 .container {
-    background-color: #222;
+    /* Changed from dark background to a slightly darker pink/purple */
+    background-color: #e4a7c1;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     max-width: 400px;
     width: 90%;
+    /* Changed container text to white for contrast against the pink background */
+    color: white;
 }
 
 h1 {
-    color: #00ffaa;
+    /* Changed from green to a vibrant pink */
+    color: #ff3399;
     margin-bottom: 30px;
 }
 
@@ -34,6 +40,7 @@ h1 {
 .eight-ball {
     width: 200px;
     height: 200px;
+    /* Main ball color remains black */
     background-color: #000;
     border-radius: 50%;
     position: relative;
@@ -47,7 +54,8 @@ h1 {
     content: '';
     width: 90px;
     height: 90px;
-    background-color: #1e90ff; /* Blue answer window */
+    /* Changed from blue to a vibrant pink answer window */
+    background-color: #ff66b3; 
     border-radius: 50%;
     position: absolute;
     display: flex;
@@ -59,11 +67,12 @@ h1 {
 #answer-text {
     position: relative;
     z-index: 10;
+    /* Text color remains white for contrast */
     color: white;
     font-size: 14px;
     font-weight: bold;
     text-align: center;
-    width: 70px; /* Constrain text width for the blue window */
+    width: 70px; 
     padding: 5px;
 }
 
@@ -74,13 +83,13 @@ h1 {
     margin-bottom: 20px;
     border: none;
     border-radius: 5px;
-    background-color: #444;
+    background-color: #555;
     color: white;
     font-size: 16px;
 }
 
 #shake-button {
-    background-color: #00aa6e;
+    background-color: #ff3399;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -91,11 +100,11 @@ h1 {
 }
 
 #shake-button:hover {
-    background-color: #00885a;
+    background-color: #cc297a;
 }
 
 .error-message {
-    color: #ff4d4d;
+    color: #ff66b3;
     margin-top: 15px;
     font-weight: bold;
 }
