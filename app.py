@@ -45,6 +45,6 @@ def ask_8_ball():
         'magic_answer': answer
     })
 
-if __name__ == '__main__':
-    # Run the Flask app on a local port (e.g., 5000)
-    app.run(debug=True)
+@app.route('/')
+def home():
+    return "Magic 8-Ball API is running! Use the /ask_8_ball endpoint to get an answer."
