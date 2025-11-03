@@ -2,8 +2,9 @@ from flask import Flask, jsonify, request
 import random
 from flask_cors import CORS 
 
+# The Flask application instance is named 'app'
 app = Flask(__name__)
-CORS(app) # Enables cross-origin requests for local development
+CORS(app) # Enables cross-origin requests
 
 # The core 8-Ball logic, now as a function
 def get_magic_answer():
@@ -29,13 +30,9 @@ def get_magic_answer():
         return "Outlook not so good."
     return "Error!"
 
-# This is the API endpoint your frontend will call
+# This is the API endpoint your frontend will call (POST request to the root URL)
 @app.route('/', methods=['POST'])
 def ask_8_ball():
-    # We could access the question here if we needed it:
-    # data = request.get_json()
-    # user_question = data.get('question')
-    
     # Get the answer
     answer = get_magic_answer()
     
@@ -44,3 +41,6 @@ def ask_8_ball():
         'question_received': 'OK',
         'magic_answer': answer
     })
+
+# NOTE: The development block (if __name__ == '__main__': app.run(debug=True))
+# is intentionally omitted because Gunicorn handles the startup.
